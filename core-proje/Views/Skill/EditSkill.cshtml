@@ -2,38 +2,33 @@
 
 @{
     ViewData["Title"] = "EditSkill";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
 
 
 
-<div class="card">
-    <div class="card-header">
-        <div class="row align-items-center">
-                <h3 class="mb-0">Yetenek Düzenleme</h3>
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-description"> Yetenek Düzenleme </p>
+
+            <form asp-controller="Skill" asp-action="EditSkill" method="post">
+                <input asp-for="SkillID" hidden />
+                <label>Yetenek Başlığı</label>
+                <input asp-for="Title" class="form-control" />
+                <br />
+                <label>Değer</label>
+                <input asp-for="Value" class="form-control" />
+                <br />
+                <button class="btn btn-block btn-lg btn-outline-light">Kaydet</button>
+            </form>
+
+
         </div>
     </div>
-    <div class="card-body pl-lg-4">           
-                <div class="row">
-                    <div class="col-lg-12">
-
-                        <form asp-controller="Skill" asp-action="EditSkill" method="post" >
-                            <input asp-for="SkillID" hidden />
-                            <label>Yetenek Başlığı</label>
-                            <input asp-for="Title" class="form-control" />
-                            <br />
-                            <label>Değer</label>
-                            <input asp-for="Value" class="form-control" />
-                            <br />
-                            <button class="btn btn-block btn-lg btn-primary">Kaydet</button>
-                        </form>
-
-
-                    </div>
-                </div>
-    </div>
 </div>
+
 
 @*@using (Html.BeginRouteForm("EditSkill", "Skill", FormMethod.Post))
     {
