@@ -4,14 +4,16 @@ using DataAccessLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20220715132411_mig_add_project_columns")]
+    partial class mig_add_project_columns
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -155,17 +157,17 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Image1")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("Image1")
+                        .HasColumnType("bit");
 
-                    b.Property<string>("Image2")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("Image2")
+                        .HasColumnType("bit");
 
-                    b.Property<string>("Image3")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("Image3")
+                        .HasColumnType("bit");
 
-                    b.Property<string>("Image4")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("Image4")
+                        .HasColumnType("bit");
 
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
