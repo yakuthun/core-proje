@@ -1,6 +1,6 @@
-﻿@model EntityLayer.Concrete.Feature
+﻿@model EntityLayer.Concrete.Service
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "EditService";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -14,16 +14,13 @@
         <div class="row">
             <div class="col-lg-12">
 
-                <form asp-controller="Feature" asp-action="Index" method="post">
-                    <input asp-for="FeatureID" hidden />
+                <form asp-controller="Service" asp-action="EditService" method="post">
+                    <input asp-for="ServiceID" hidden />
                     <label>Başlık</label>
-                    <input asp-for="Header" class="form-control" />
-                    <br />
-                    <label>İsim</label>
-                    <input asp-for="Name" class="form-control" />
-                    <br />
-                    <label>Alt başlık</label>
                     <input asp-for="Title" class="form-control" />
+                    <br />
+                    <label>Fotoğraf Linki</label>
+                    <input asp-for="ImageUrl" class="form-control" />
                     <br />
                     <button class="btn btn-block btn-lg btn-primary">Kaydet</button>
                 </form>
@@ -33,3 +30,4 @@
         </div>
     </div>
 </div>
+

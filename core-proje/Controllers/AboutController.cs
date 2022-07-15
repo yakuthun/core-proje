@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace core_proje.Controllers
 {
-    public class FeatureController : Controller
+    public class AboutController : Controller
     {
-        FeatureManager featureManager = new FeatureManager(new EfFeatureDal());
+        AboutManager aboutManager = new AboutManager(new EfAboutDal());
 
         public void NavigationBar(string v1, string v2, string v3)
         {
@@ -22,17 +22,17 @@ namespace core_proje.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            NavigationBar("Öne Çıkan Listesi", "Öne Çıkanlar", "Öne Çıkan Listesi");
-            var values = featureManager.TGetByID(1);
+            NavigationBar("Hakkımda Listesi", "Hakkımda", "Hakkımda Listesi");
+            var values = aboutManager.TGetByID(1);
             return View(values);
         }
 
         [HttpPost]
-        public IActionResult Index(Feature feature)
+        public IActionResult Index(About about)
         {
-            NavigationBar("Düzenleme", "Öne Çıkanlar", "Öne Çıkan Güncelleme");
-            featureManager.TUpdate(feature);
-            return RedirectToAction("Index","Feature");
+            NavigationBar("Hakkımda Listesi", "Hakkımda", "Hakkımda Listesi");
+            aboutManager.TUpdate(about);
+            return RedirectToAction("Index", "About");
         }
     }
 }
