@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -30,21 +32,28 @@ namespace core_proje.Controllers
             NavigationBar("Proje Ekleme", "Projeler", "Proje Ekleme");
             return View();
         }
+
         [HttpPost]
         public IActionResult AddPortfolio(Portfolio portfolio)
         {
             NavigationBar("Proje Ekleme", "Projeler", "Proje Ekleme");
-            if (portfolio.Name != null && portfolio.ImageUrl == "" && portfolio.Name.Length <= 100 && portfolio.Name.Length >= 5)
+            PortfolioValidator validations = new PortfolioValidator();
+            ValidationResult result = validations.Validate(portfolio);
+            if (result.IsValid)
             {
                 portfolioManager.TAdd(portfolio);
+                return RedirectToAction("Index");
             }
             else
             {
-                //
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName,item.ErrorMessage);
+                }
             }
-           
-            return RedirectToAction("Index");
+            return View();
         }
+
         public IActionResult DeletePortfolio(int id)
         {
             var values = portfolioManager.TGetByID(id);
