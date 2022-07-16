@@ -16,7 +16,7 @@ namespace core_proje.Controllers
         }
         public IActionResult Index()
         {
-            NavigationBar("Öne Çıkan Listesi", "Öne Çıkanlar", "Öne Çıkan Listesi");
+            NavigationBar("Dashboard", "Dashboard", "");
             return View();
         }
     }
