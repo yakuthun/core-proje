@@ -6,14 +6,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace core_proje.ViewComponents.Dashboard
+namespace core_proje.ViewComponents.Portfolio
 {
-    public class MessageList:ViewComponent
+    public class SlideList : ViewComponent
     {
-        UserMessageManager messageManager = new UserMessageManager(new EfUserMessageDal());
+        PortfolioManager portfolioManager = new PortfolioManager(new EfPortfolioDal());
         public IViewComponentResult Invoke()
         {
-            var values = messageManager.GetUserMessagesWithUserService();
+            var values = portfolioManager.TGetList();
             return View(values);
         }
     }
