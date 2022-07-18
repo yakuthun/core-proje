@@ -1,0 +1,16 @@
+﻿@model EntityLayer.Concrete.Announcemet
+@{
+    ViewData["Title"] = "AnnouncementDetalis";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+
+
+<div class="card" style="width: 100%; text-align:center" >
+    <div class="card-body">
+        <h5 class="card-title">Duyuru Detayları</h5>
+        <h6 class="card-subtitle mb-2 text-muted">@Model.Title</h6>
+        <p class="card-text">@Model.Content</p>
+        <a href="/Writer/Default/" class="card-link">Geri Dön</a>
+    </div>
+</div>
