@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace core_proje.Areas.Writer.Controllers
 {
     [Area("Writer")]
+    [Route("Writer/[controller]/[action]")]
     public class RegisterController : Controller
     {
 

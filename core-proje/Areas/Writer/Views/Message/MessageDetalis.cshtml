@@ -1,0 +1,19 @@
+﻿@model EntityLayer.Concrete.WriterMessage
+@{
+    ViewData["Title"] = "MessageDetalis";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="card" style="width: 100%; text-align:center" >
+    <div class="card-body">
+        <h5 class="card-title">Mesaj Detayı</h5>
+        <h6 class="card-subtitle mb-2 text-muted">@Model.WriterMessageID</h6>
+        <p>Gönderien adı</p>
+        <p class="card-text">@Model.SenderName</p>
+        <p>Gönderen Mail</p>
+        <p class="card-text">@Model.Sender</p>
+         <p>Mesaj</p>
+        <p class="card-text">@Model.MessageContent</p>
+        <a href="/Writer/Message/SenderMessage" class="card-link">Geri Dön</a>
+    </div>
+</div>
