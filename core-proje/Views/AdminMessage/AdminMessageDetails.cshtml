@@ -1,0 +1,26 @@
+﻿@model EntityLayer.Concrete.WriterMessage
+@{
+    ViewData["Title"] = "AdminMessageDetails";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="card" style="width: 100%;"  >
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+       
+        <h5 class="card-title">Mesaj Detayı</h5>
+        <h6 class="card-subtitle mb-2 text-muted">@Model.WriterMessageID</h6>
+        <p>Alıcı adı : @Model.ReceiverName</p>
+        <p>Alıcı Mail : @Model.Receiver</p>
+         <p>Tarih : @Model.Date</p>
+          </div>
+          
+          <div class="col">
+         <p><b>@Model.Subject</b></p>
+        <p class="card-text">@Model.MessageContent</p>
+        </div>
+        </div>
+        <a asp-action="SenderMessageList" class="card-link">Geri Dön</a>
+    </div>
+</div>
