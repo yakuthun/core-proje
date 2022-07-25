@@ -1,0 +1,33 @@
+﻿@model EntityLayer.Concrete.Testimonial
+@{
+    ViewData["Title"] = "UpdateTestimonial";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-description">Referans Detay Sayfası</p>
+
+            <form method="post" asp-controller="Testimonial" asp-action="UpdateTestimonial" id="addform">
+                <input asp-for="TestimonialID" hidden />
+                <label>Ad Soyad</label>
+                <input type="text" asp-for="ClientName" class="form-control" />
+                <br />
+                <label>Şirket</label>
+                <input type="text" asp-for="Company" class="form-control" />
+                <br />
+                <label>Ünvan</label>
+                <input type="text" asp-for="Title" class="form-control" />
+                <br />
+                     <label>Ünvan</label>
+                <input type="text" asp-for="ImageUrl" class="form-control" />
+                <br />
+                <label>Yorum</label>
+                <textarea rows="4" cols="50" asp-for="Comment" form="addform" class="form-control"></textarea>
+                <br />
+                <button class="btn btn-block btn-lg btn-outline-light">Düzenle</button>
+            </form>
+        </div>
+    </div>
+</div>
